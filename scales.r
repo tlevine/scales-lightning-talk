@@ -17,6 +17,13 @@ o2 <- function() {
   axis(2, at = c(0, 500, 1000, 1500, 2000), labels = c('0','500','1,000','1,500','2,000'))
 }
 
+o3 <- function() {
+  plot(acreage ~ publicNoticeDate, data = a, axes = FALSE)
+  axis(2, at = c(0, 500, 1000, 1500, 2000), labels = c('0','500','1,000','1,500','2,000'))
+  axis(1, at = as.Date(paste0('2012-', c('04','06','08'),'-01')),
+    labels = c('April','June','August'))
+}
+
 p1 <- ggplot(iris) + aes(x = Sepal.Width, y = Sepal.Length, color = Species) + geom_point()
 
 p2 <- p1 + scale_x_continuous(labels = dollar) + scale_y_continuous(labels = comma)
