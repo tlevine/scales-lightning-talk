@@ -8,6 +8,15 @@ if (!('a' %in% ls())) {
 }
 a$publicNoticeDate <- as.Date(a$publicNoticeDate)
 
+o1 <- function() {
+  plot(acreage ~ publicNoticeDate, data = a)
+}
+
+o2 <- function() {
+  plot(acreage ~ publicNoticeDate, data = a, axes = FALSE)
+  axis(2, at = c(0, 500, 1000, 1500, 2000), labels = c('0','500','1,000','1,500','2,000'))
+}
+
 p1 <- ggplot(iris) + aes(x = Sepal.Width, y = Sepal.Length, color = Species) + geom_point()
 
 p2 <- p1 + scale_x_continuous(labels = dollar) + scale_y_continuous(labels = comma)
